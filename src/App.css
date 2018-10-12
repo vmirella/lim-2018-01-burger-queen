@@ -1,14 +1,15 @@
 .App {
-  text-align: center;
+  /*text-align: center;*/
 }
 
 .App-logo {
   animation: App-logo-spin infinite 2s alternate;
   height: 4vmin;
+  color: #fdd835;
 }
 
 .App-header {
-  background-color: #AC7B35;
+  background-color: #0D2C54;
   min-height: 20px;
   display: flex;
   flex-direction: column;
@@ -26,4 +27,15 @@
   to {
     transform: rotate(10deg);
   }
+}
+
+.div-breakfast {
+  display: none;
+}
+
+.div-lunch-dinner {
+  /*display: none;*/
+}
+.food-type {
+  margin: 20px;
 }
