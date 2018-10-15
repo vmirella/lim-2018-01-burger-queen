@@ -38,7 +38,7 @@ class App extends Component {
     const orders = this.state.orders;
     let total = 0;
     orders.map((order) => {
-      total += order.subtotal;
+      return total += order.subtotal;
     });
     this.setState({total: total}); 
   } 
@@ -48,6 +48,10 @@ class App extends Component {
       <div className="App">
         <div className = "App-header">
           <h2>Burger Queen <i className ="fas fa-chess-queen App-logo"></i></h2>
+          <div className="div-client">
+            <label>Nombre del cliente:</label>
+            <input></input>
+          </div>
         </div>
         <div className = "container">
           <div className = "row">
@@ -71,9 +75,24 @@ class App extends Component {
                   <div>
                     <div className="divider"></div>
                     <h5>Hamburguesas</h5>
+                    <div col s6>
                     <Button textButton = "Hamburguesa carne" color = "light-blue darken-3" name={'Hamburguesa carne'} price={10} onAddProduct={this.addProduct}></Button>
                     <Button textButton = "Hamburguesa pollo" color = "light-blue darken-3" name={'Hamburguesa pollo'} price={10} onAddProduct={this.addProduct}></Button>
-                    <Button textButton = "Hamburguesa vegana" color = "light-blue darken-3" name={'Hamburguesa vegana'} price={10} onAddProduct={this.addProduct}></Button>
+                    <Button textButton = "Hamburguesa vegetariana" color = "light-blue darken-3" name={'Hamburguesa vegetariana'} price={10} onAddProduct={this.addProduct}></Button>
+                    </div>
+                    <div className="divider"></div>
+                    <div col s6>
+                      <p>
+                        <label>
+                          <input className="with-gap" name="group3" type="radio" checked />
+                          <span>Simple</span>
+                        </label>
+                        <label>
+                          <input className="with-gap" name="group3" type="radio" />
+                          <span>Doble</span>
+                        </label>
+                      </p>
+                    </div>
                     <div className="divider"></div>
                     <h5>Acompañamientos</h5>
                     <Button textButton = "Papas fritas S/. 5" color = "light-blue darken-3" name={'Papas fritas'} price={5} onAddProduct={this.addProduct}></Button>
