@@ -29,13 +29,16 @@
   }
 }
 
-.div-breakfast {
+.show {
+  display: block;
+}
+
+.hide {
   display: none;
 }
 
-.div-lunch-dinner {
-  /*display: none;*/
-}
 .food-type {
-  margin: 20px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
