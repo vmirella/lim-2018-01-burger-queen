@@ -25,6 +25,10 @@ class App extends Component {
     const order = {
       name: name,
       quantity: quantity,
+      promotion: {
+        egg: false,
+        cheese: false
+      },
       price: price,
       subtotal: subtotal
     }
@@ -118,13 +122,33 @@ class App extends Component {
                   <Collapsible>
                     <CollapsibleItem header="Hamburguesas">
                       <div className="row">
-                        <Card name={'Hamburguesa carne simple'} price={10} onAddProduct={this.addProduct}></Card>
-                        <Card name={'Hamburguesa carne doble'} price={15} onAddProduct={this.addProduct}></Card>
-                        <Card name={'Hamburguesa pollo simple'} price={10} onAddProduct={this.addProduct}></Card>
-                        <Card name={'Hamburguesa pollo doble'} price={15} onAddProduct={this.addProduct}></Card>
-                        <Card name={'Hamburguesa vegetariana simple'} price={10} onAddProduct={this.addProduct}></Card>                  
-                        <Card name={'Hamburguesa vegetariana doble'} price={15} onAddProduct={this.addProduct}></Card>
+                        <div col s6>
+                          <Card name={'carne simple'} price={10} onAddProduct={this.addProduct}></Card>
+                          <Card name={'carne doble'} price={15} onAddProduct={this.addProduct}></Card>
+                          <Card name={'pollo simple'} price={10} onAddProduct={this.addProduct}></Card>
+                        </div>
+                        <div col s6>
+                          <Card name={'pollo doble'} price={15} onAddProduct={this.addProduct}></Card>
+                          <Card name={'vegetariana simple'} price={10} onAddProduct={this.addProduct}></Card>                  
+                          <Card name={'vegetariana doble'} price={15} onAddProduct={this.addProduct}></Card>
+                        </div>                                               
                       </div> 
+                      <div className="row">
+                        <div className="col s12">
+                          <p>
+                            <label>
+                              <input type="checkbox" class="filled-in" />
+                              <span>Huevo</span>
+                            </label>
+                          </p>
+                          <p>
+                            <label>
+                              <input type="checkbox" class="filled-in" />
+                              <span>Queso</span>
+                            </label>
+                          </p>
+                        </div>
+                      </div>
                     </CollapsibleItem>
                     <CollapsibleItem header="Acompañamientos">
                       <div className="row">
