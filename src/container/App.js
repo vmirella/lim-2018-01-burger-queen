@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import Form from '../components/Form';
 import '../App.css';
 import Card from '../components/Card';
-import {Tabs, Tab, Collapsible, CollapsibleItem, Modal, Button} from 'react-materialize';
+import {Tabs, Tab, Collapsible, CollapsibleItem, Button} from 'react-materialize';
 import firebase from 'firebase';
 
 class App extends Component {
@@ -102,7 +103,27 @@ class App extends Component {
   }
 
   sendOrder = () => {
-    
+    const orders = this.state.orders;
+    const db = firebase.firestore();
+
+    if(this.state.client === ''){
+      console.log('cliente vacio');
+      //window.Materialize.toast('Cliente vacio', 2000);
+      return;
+    }
+
+    const objOrder = {
+      client: this.state.client,
+      order: orders
+    }
+
+    db.collection('orders').add(objOrder)
+    .then(function() {
+        console.log('orden enviada');
+    })
+    .catch(function(error) {
+        console.error("Error writing document: ", error);
+    });
   }
 
   componentDidMount() {
@@ -125,7 +146,6 @@ class App extends Component {
       });
       this.setState({juices: juices});
     });
-    
 
     const sandwiches = [];
     db.collection('productos').doc('desayunos').collection('sandwiches')
@@ -162,18 +182,6 @@ class App extends Component {
       });
       this.setState({drinks: drinks});
     });
-    
-
-    /*db.collection('productos').doc('almuerzos').collection('acompañamientos').doc('onion-rings').set({
-      name: 'Onion rings',
-      price: 5
-    })
-    .then(function() {
-        console.log("Document successfully written!");
-    })
-    .catch(function(error) {
-        console.error("Error writing document: ", error);
-    });*/
   }
 
   render() {
