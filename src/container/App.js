@@ -3,6 +3,7 @@ import Form from '../components/Form';
 import '../App.css';
 import Card from '../components/Card';
 import {Tabs, Tab, Collapsible, CollapsibleItem, Modal, Button} from 'react-materialize';
+import firebase from 'firebase';
 
 class App extends Component {
   constructor(props) {
@@ -10,7 +11,15 @@ class App extends Component {
     this.state = {
       orders: [],
       total: 0,
-      client: ''
+      client: '',
+      tabBreakfast: true,
+      tabLunch: false,
+      coffees: [],
+      juices: [],
+      sandwiches: [],
+      burguers: [],
+      accompaniments: [],
+      drinks: []
     }
     this.addProduct = this.addProduct.bind(this);
     this.calculateTotal = this.calculateTotal.bind(this);
@@ -80,6 +89,93 @@ class App extends Component {
     this.setState({ client: e.target.value });
   }
 
+  handleTabChange = (event) => {
+    let lastChar = event.slice(-1);
+    if(lastChar === '0'){
+      this.setState({tabBreakfast: true});
+      this.setState({tabLunch: false});
+    }
+    else {
+      this.setState({tabBreakfast: false});
+      this.setState({tabLunch: true});
+    }
+  }
+
+  sendOrder = () => {
+    
+  }
+
+  componentDidMount() {
+    const db = firebase.firestore();
+    
+    const coffees = [];
+    db.collection('productos').doc('desayunos').collection('cafes')
+    .onSnapshot((snapshot) => {
+      snapshot.forEach((doc) => {
+        coffees.push(doc.data());
+      });
+      this.setState({coffees: coffees});
+    });
+
+    const juices = [];
+    db.collection('productos').doc('desayunos').collection('jugos')
+    .onSnapshot((snapshot) => {
+      snapshot.forEach((doc) => {
+        juices.push(doc.data());
+      });
+      this.setState({juices: juices});
+    });
+    
+
+    const sandwiches = [];
+    db.collection('productos').doc('desayunos').collection('sandwiches')
+    .onSnapshot((snapshot) => {      
+      snapshot.forEach((doc) => {
+        sandwiches.push(doc.data());
+      });
+      this.setState({sandwiches: sandwiches});
+    });    
+
+    const burguers = [];
+    db.collection('productos').doc('almuerzos').collection('hamburguesas')
+    .onSnapshot((snapshot) => {
+      snapshot.forEach((doc) => {
+        burguers.push(doc.data());
+      });
+      this.setState({burguers: burguers});
+    });
+
+    const accompaniments = [];
+    db.collection('productos').doc('almuerzos').collection('acompañamientos')
+    .onSnapshot((snapshot) => {      
+      snapshot.forEach((doc) => {
+        accompaniments.push(doc.data());
+      });
+      this.setState({accompaniments: accompaniments});
+    });
+
+    const drinks = [];
+    db.collection('productos').doc('almuerzos').collection('bebidas')
+    .onSnapshot((snapshot) => {      
+      snapshot.forEach((doc) => {
+        drinks.push(doc.data());
+      });
+      this.setState({drinks: drinks});
+    });
+    
+
+    /*db.collection('productos').doc('almuerzos').collection('acompañamientos').doc('onion-rings').set({
+      name: 'Onion rings',
+      price: 5
+    })
+    .then(function() {
+        console.log("Document successfully written!");
+    })
+    .catch(function(error) {
+        console.error("Error writing document: ", error);
+    });*/
+  }
+
   render() {
     return (
       <div className="App">
@@ -95,73 +191,65 @@ class App extends Component {
         <div className = "container">
           <div className = "row">
             <div className = "col m5">
-              <Tabs>
-                <Tab title="Desayuno" className="waves-effect waves-light" active>
+              <Tabs onChange={this.handleTabChange}>
+                <Tab title="Desayuno" className="waves-effect waves-light" active={this.state.tabBreakfast}>
                 <Collapsible>
                   <CollapsibleItem header='Cafés'>
                     <div className="row">
-                      <Card name={'Café americano'} price={5} onAddProduct={this.addProduct}>
-                      </Card>
-                      <Card name={'Café con leche'} price={7} onAddProduct={this.addProduct}>
-                      </Card>
+                      {this.state.coffees.map((coffee, i) => {
+                        return(
+                          <Card name={coffee.name} price={coffee.price} key={i} onAddProduct={this.addProduct}></Card>
+                        )
+                      })}
                     </div>
                   </CollapsibleItem>
                   <CollapsibleItem header='Jugos'>
                     <div className="row">
-                      <Card name={'Jugo natural'} price={7} onAddProduct={this.addProduct}></Card>
+                      {this.state.juices.map((juice, i) => {
+                        return(
+                          <Card name={juice.name} price={juice.price} key={i} onAddProduct={this.addProduct}></Card>
+                        )
+                      })}
                     </div>
                   </CollapsibleItem>
                   <CollapsibleItem header='Sandwiches'>
                     <div className="row">
-                      <Card name={'Sandwich de jamón y queso'} price={7} onAddProduct={this.addProduct}></Card>
+                      {this.state.sandwiches.map((sandwich, i) => {
+                        return(
+                          <Card name={sandwich.name} price={sandwich.price} key={i} onAddProduct={this.addProduct}></Card>
+                        )
+                      })}
                     </div>
                   </CollapsibleItem>
                 </Collapsible>
                 </Tab>
-                <Tab title="Almuerzo / Cena">
+                <Tab title="Almuerzo / Cena" active={this.state.tabLunch}>
                   <Collapsible>
                     <CollapsibleItem header="Hamburguesas">
                       <div className="row">
-                        <div col s6>
-                          <Card name={'carne simple'} price={10} onAddProduct={this.addProduct}></Card>
-                          <Card name={'carne doble'} price={15} onAddProduct={this.addProduct}></Card>
-                          <Card name={'pollo simple'} price={10} onAddProduct={this.addProduct}></Card>
-                        </div>
-                        <div col s6>
-                          <Card name={'pollo doble'} price={15} onAddProduct={this.addProduct}></Card>
-                          <Card name={'vegetariana simple'} price={10} onAddProduct={this.addProduct}></Card>                  
-                          <Card name={'vegetariana doble'} price={15} onAddProduct={this.addProduct}></Card>
-                        </div>                                               
+                        {this.state.burguers.map((burguer, i) => {
+                          return(
+                            <Card name={burguer.name} price={burguer.price} key={i} onAddProduct={this.addProduct}></Card>
+                          )
+                        })}                                            
                       </div> 
-                      <div className="row">
-                        <div className="col s12">
-                          <p>
-                            <label>
-                              <input type="checkbox" class="filled-in" />
-                              <span>Huevo</span>
-                            </label>
-                          </p>
-                          <p>
-                            <label>
-                              <input type="checkbox" class="filled-in" />
-                              <span>Queso</span>
-                            </label>
-                          </p>
-                        </div>
-                      </div>
                     </CollapsibleItem>
                     <CollapsibleItem header="Acompañamientos">
                       <div className="row">
-                        <Card name={'Papas fritas'} price={5} onAddProduct={this.addProduct}></Card>
-                        <Card name={'Onions rings'} price={5} onAddProduct={this.addProduct}></Card>
+                        {this.state.accompaniments.map((accompaniment, i) => {
+                          return(
+                            <Card name={accompaniment.name} price={accompaniment.price} key={i} onAddProduct={this.addProduct}></Card>
+                          )
+                        })}
                       </div>
                     </CollapsibleItem>
                     <CollapsibleItem header="Bebidas">
                       <div className="row">
-                        <Card name={'Agua 500 ml.'} price={5} onAddProduct={this.addProduct}></Card>
-                        <Card name={'Gaseosa 500 ml.'} price={5} onAddProduct={this.addProduct}></Card>
-                        <Card name={'Agua 750 ml.'} price={8} onAddProduct={this.addProduct}></Card>
-                        <Card name={'Gaseosa 750 ml.'} price={10} onAddProduct={this.addProduct}></Card>
+                        {this.state.drinks.map((drink, i) => {
+                          return(
+                            <Card name={drink.name} price={drink.price} key={i} onAddProduct={this.addProduct}></Card>
+                          )
+                        })}
                       </div>
                     </CollapsibleItem>
                   </Collapsible>                  
@@ -170,10 +258,7 @@ class App extends Component {
             </div>
             <div className = "col m7">
               <Form arrayOrders={this.state.orders} total={this.state.total} updateQuantity={this.updateQuantity} removeProduct={this.removeProduct}/>
-              <Modal
-                header={`El pedido ha sido enviado, para el cliente ${this.state.client}.`}
-                trigger={<Button>Enviar pedido</Button>}>
-              </Modal>
+              <Button onClick={this.sendOrder}>Enviar pedido</Button>
             </div>
           </div>
         </div>

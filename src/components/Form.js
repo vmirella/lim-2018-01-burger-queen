@@ -22,13 +22,13 @@ const Form = (props) => {
                   <td>{order.name}</td>
                   <td>S/. {order.price}</td>
                   <td>
-                    <button className="btn-small" onClick={() => props.updateQuantity(i, -1)}><i class="material-icons">remove</i></button>
+                    <button className="btn-small" onClick={() => props.updateQuantity(i, -1)}><i className="material-icons">remove</i></button>
                     &nbsp;&nbsp;
                     {order.quantity}
                     &nbsp;&nbsp;
-                    <button className="btn-small" onClick={() => props.updateQuantity(i, 1)}><i class="material-icons">add</i></button></td>                  
+                    <button className="btn-small" onClick={() => props.updateQuantity(i, 1)}><i className="material-icons">add</i></button></td>                  
                   <td>S/. {order.subtotal}</td>
-                  <td><button className="btn red darken-1" onClick={() => props.removeProduct(i)}><i class="material-icons">close</i></button></td>
+                  <td><button className="btn red darken-1" onClick={() => props.removeProduct(i)}><i className="material-icons">close</i></button></td>
                 </tr>
               )
             })}            
