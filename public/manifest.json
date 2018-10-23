@@ -8,7 +8,11 @@
             "sizes": "48x48",
             "type": "image/png"
         },
-
+        {
+            "src": "./Images/images/windows10/SplashScreen.scale-200.png.png",
+            "sizes": "1240x600",
+            "type": "image/png"
+        },
         {
             "src": "./Images/images/b2602350-7071-bd44-c946-91554cb81ee7.webPlatform.png",
             "sizes": "150x150",
