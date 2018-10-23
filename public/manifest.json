@@ -8,17 +8,17 @@
       "type": "image/x-icon"
     },
     {
-      "src": ".images/crow_44x44.png",
+      "src": "./images/crow_44x44.png",
       "sizes": "44x44",
       "type": "image/x-icon"
     },
     {
-      "src": ".images/crow_300x300.png",
+      "src": "./images/crow_300x300.png",
       "sizes": "300x300",
       "type": "image/x-icon"
     },
     {
-      "src": ".images/crow_512x512.png",
+      "src": "./images/crow_512x512.png",
       "sizes": "512x512",
       "type": "image/x-icon"
     }
