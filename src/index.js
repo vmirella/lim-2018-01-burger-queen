@@ -14,6 +14,7 @@ const config = {
   messagingSenderId: "1065454584888"
 };
 firebase.initializeApp(config);
+firebase.firestore().enablePersistence();
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

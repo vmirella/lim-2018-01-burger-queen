@@ -106,9 +106,16 @@ class App extends Component {
     const orders = this.state.orders;
     const db = firebase.firestore();
 
+    let msg = ReactDOM.findDOMNode(this.refs['msg']);
+    let error = ReactDOM.findDOMNode(this.refs['error']);
+
     if(this.state.client === ''){
       console.log('cliente vacio');
-      //window.Materialize.toast('Cliente vacio', 2000);
+      
+      error.classList.add('show');
+      setTimeout(function(){ 
+        error.classList.remove('show'); 
+      }, 3000);
       return;
     }
 
@@ -120,6 +127,11 @@ class App extends Component {
     db.collection('orders').add(objOrder)
     .then(function() {
         console.log('orden enviada');
+        
+        msg.classList.add('show');
+        setTimeout(function(){ 
+          msg.classList.remove('show'); 
+        }, 3000);
     })
     .catch(function(error) {
         console.error("Error writing document: ", error);
@@ -267,6 +279,8 @@ class App extends Component {
             <div className = "col m7">
               <Form arrayOrders={this.state.orders} total={this.state.total} updateQuantity={this.updateQuantity} removeProduct={this.removeProduct}/>
               <Button onClick={this.sendOrder}>Enviar pedido</Button>
+              <div className="message" ref={'error'}>Debe ingresar el nombre del cliente</div>
+              <div className="message" ref={'msg'}>La orden fue enviada</div>
             </div>
           </div>
         </div>
