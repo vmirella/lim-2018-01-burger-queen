@@ -94,11 +94,11 @@ En estos wireframes he contemplado la idea de manejar cuentas de usuarios para l
 
 Por el momento se puede apreciar que tienen 2 funciones disponibles: generar orden y ver un reporte de las ordenes con su detalle.
 
-![burger-queen](./images/images/vista1.jpg)
-![burger-queen](./images/images/vista2.jpg)
-![burger-queen](./images/images/vista3.jpg)
-![burger-queen](./images/images/vista4.jpg)
-![burger-queen](./images/images/vista5.jpg)
+![burger-queen](https://github.com/vmirella/lim-2018-01-burger-queen/blob/gh-pages/Images/images/vista1.jpg)
+![burger-queen](https://github.com/vmirella/lim-2018-01-burger-queen/blob/gh-pages/Images/images/vista2.jpg)
+![burger-queen](https://github.com/vmirella/lim-2018-01-burger-queen/blob/gh-pages/Images/images/vista3.jpg)
+![burger-queen](https://github.com/vmirella/lim-2018-01-burger-queen/blob/gh-pages/Images/images/vista4.jpg)
+![burger-queen](https://github.com/vmirella/lim-2018-01-burger-queen/blob/gh-pages/Images/images/vista5.jpg)
 
 ### Instalación
 
