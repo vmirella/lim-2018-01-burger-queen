@@ -15,6 +15,12 @@ class App extends Component {
       client: '',
       tabBreakfast: true,
       tabLunch: false,
+      collapseCoffes: '',
+      collapseJuices: '',
+      collapseSandwiches: '',
+      collapseBurgues: '',
+      collapseAccompaniments: '',
+      collapseDrinks: '',
       coffees: [],
       juices: [],
       sandwiches: [],
@@ -100,6 +106,37 @@ class App extends Component {
       this.setState({tabBreakfast: false});
       this.setState({tabLunch: true});
     }
+  }
+
+  handleCollapse = (item) => {
+    this.setState({ collapseCoffes: '' });
+    this.setState({ collapseJuices: '' });
+    this.setState({ collapseSandwiches: '' });
+    this.setState({ collapseBurgues: '' });
+    this.setState({ collapseAccompaniments: '' });
+    this.setState({ collapseDrinks: '' });
+
+    switch(item) {
+      case 'collapseCoffes': 
+        this.setState({ collapseCoffes: 'active' });
+        break;
+      case 'collapseJuices': 
+        this.setState({ collapseJuices: 'active' });
+        break;
+      case 'collapseSandwiches': 
+        this.setState({ collapseSandwiches: 'active' });
+        break;
+      case 'collapseBurgues': 
+        this.setState({ collapseBurgues: 'active' });
+        break;
+      case 'collapseAccompaniments': 
+        this.setState({ collapseAccompaniments: 'active' });
+        break;
+      case 'collapseDrinks': 
+        this.setState({ collapseDrinks: 'active' });
+        break;
+    }
+    
   }
 
   sendOrder = () => {
@@ -214,7 +251,7 @@ class App extends Component {
               <Tabs onChange={this.handleTabChange}>
                 <Tab title="Desayuno" className="waves-effect waves-light" active={this.state.tabBreakfast}>
                 <Collapsible>
-                  <CollapsibleItem header='Cafés'>
+                  <CollapsibleItem header="Cafés" className={this.state.collapseCoffes} onClick={() => this.handleCollapse('collapseCoffes')}>
                     <div className="row">
                       {this.state.coffees.map((coffee, i) => {
                         return(
@@ -223,7 +260,7 @@ class App extends Component {
                       })}
                     </div>
                   </CollapsibleItem>
-                  <CollapsibleItem header='Jugos'>
+                  <CollapsibleItem header="Jugos" className={this.state.collapseJuices} onClick={() => this.handleCollapse('collapseJuices')}>
                     <div className="row">
                       {this.state.juices.map((juice, i) => {
                         return(
@@ -232,7 +269,7 @@ class App extends Component {
                       })}
                     </div>
                   </CollapsibleItem>
-                  <CollapsibleItem header='Sandwiches'>
+                  <CollapsibleItem header="Sandwiches" className={this.state.collapseSandwiches} onClick={() => this.handleCollapse('collapseSandwiches')}>
                     <div className="row">
                       {this.state.sandwiches.map((sandwich, i) => {
                         return(
@@ -245,7 +282,7 @@ class App extends Component {
                 </Tab>
                 <Tab title="Almuerzo / Cena" active={this.state.tabLunch}>
                   <Collapsible>
-                    <CollapsibleItem header="Hamburguesas">
+                    <CollapsibleItem header="Hamburguesas" className={this.state.collapseBurgues} onClick={() => this.handleCollapse('collapseBurgues')}>
                       <div className="row">
                         {this.state.burguers.map((burguer, i) => {
                           return(
@@ -254,7 +291,7 @@ class App extends Component {
                         })}                                            
                       </div> 
                     </CollapsibleItem>
-                    <CollapsibleItem header="Acompañamientos">
+                    <CollapsibleItem header="Acompañamientos" className={this.state.collapseAccompaniments} onClick={() => this.handleCollapse('collapseAccompaniments')}>
                       <div className="row">
                         {this.state.accompaniments.map((accompaniment, i) => {
                           return(
@@ -263,7 +300,7 @@ class App extends Component {
                         })}
                       </div>
                     </CollapsibleItem>
-                    <CollapsibleItem header="Bebidas">
+                    <CollapsibleItem header="Bebidas" className={this.state.collapseDrinks} onClick={() => this.handleCollapse('collapseDrinks')}>
                       <div className="row">
                         {this.state.drinks.map((drink, i) => {
                           return(
