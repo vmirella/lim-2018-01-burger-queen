@@ -107,7 +107,7 @@ Para instalarlo bastará con abrir el siguiente link:
 
 Si se accesa desde una tablet o celular se mostrará un mensaje en la parte inferior de la pantalla, el cual nos dirá si lo queremos instalar como app en nuestro dispositivo. Al confirmar se instalará inmediatamente.
 
-![burger-queen](./images/images/vista6.jpg)
+![burger-queen](https://github.com/vmirella/lim-2018-01-burger-queen/blob/gh-pages/Images/images/vista6.jpg)
 
 #### Hito 1: Tomar pedidos
 
