@@ -5,16 +5,15 @@ import App from './container/App';
 import * as serviceWorker from './serviceWorker';
 import firebase from 'firebase';
 // Initialize Firebase
-const config = {
+var config = {
   apiKey: "AIzaSyCLwJnRQC7oNMKjdQ3Oh87o-NeNlLn9GzI",
   authDomain: "burguer-queen-9c312.firebaseapp.com",
   databaseURL: "https://burguer-queen-9c312.firebaseio.com",
   projectId: "burguer-queen-9c312",
-  storageBucket: "",
+  storageBucket: "burguer-queen-9c312.appspot.com",
   messagingSenderId: "1065454584888"
 };
 firebase.initializeApp(config);
-firebase.firestore().enablePersistence();
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

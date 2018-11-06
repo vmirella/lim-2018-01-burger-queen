@@ -141,7 +141,6 @@ class App extends Component {
 
   sendOrder = () => {
     const orders = this.state.orders;
-    const db = firebase.firestore();
 
     let msg = ReactDOM.findDOMNode(this.refs['msg']);
     let error = ReactDOM.findDOMNode(this.refs['error']);
@@ -161,76 +160,80 @@ class App extends Component {
       order: orders
     }
 
-    db.collection('orders').add(objOrder)
-    .then(function() {
+    const newPostKey = firebase.database().ref().child('orders').push().key;
+
+    firebase.database().ref('orders/' + newPostKey).set(objOrder, function(error) {
+      if (error) {
+        console.log('error al enviar');
+      } else {
         console.log('orden enviada');
         
         msg.classList.add('show');
         setTimeout(function(){ 
           msg.classList.remove('show'); 
         }, 3000);
-    })
-    .catch(function(error) {
-        console.error("Error writing document: ", error);
+      }
     });
   }
 
   componentDidMount() {
-    const db = firebase.firestore();
+    // Generar un id para el producto.
+	  /*const newPostKey = firebase.database().ref().child('products').push().key;
+
+    firebase.database().ref('products/' + newPostKey).set({
+      name: 'Queso',
+      price: 1,
+      type: 'hamburguesas',
+      category: 'almuerzos' 
+    });*/
     
-    const coffees = [];
-    db.collection('productos').doc('desayunos').collection('cafes')
-    .onSnapshot((snapshot) => {
-      snapshot.forEach((doc) => {
-        coffees.push(doc.data());
+    let coffees = [];
+    firebase.database().ref('products').orderByChild('type').equalTo('cafes').once('value', (snapshot) =>{
+      snapshot.forEach(function(item) {
+        coffees.push(item.val());
       });
-      this.setState({coffees: coffees});
     });
+    this.setState({coffees: coffees});
 
-    const juices = [];
-    db.collection('productos').doc('desayunos').collection('jugos')
-    .onSnapshot((snapshot) => {
-      snapshot.forEach((doc) => {
-        juices.push(doc.data());
+    let juices = [];
+    firebase.database().ref('products').orderByChild('type').equalTo('jugos').once('value', (snapshot) =>{
+      snapshot.forEach(function(item) {
+        juices.push(item.val());
       });
-      this.setState({juices: juices});
     });
+    this.setState({juices: juices});
 
-    const sandwiches = [];
-    db.collection('productos').doc('desayunos').collection('sandwiches')
-    .onSnapshot((snapshot) => {      
-      snapshot.forEach((doc) => {
-        sandwiches.push(doc.data());
+    let sandwiches = [];
+    firebase.database().ref('products').orderByChild('type').equalTo('sandwiches').once('value', (snapshot) =>{
+      snapshot.forEach(function(item) {
+        sandwiches.push(item.val());
       });
-      this.setState({sandwiches: sandwiches});
-    });    
-
-    const burguers = [];
-    db.collection('productos').doc('almuerzos').collection('hamburguesas')
-    .onSnapshot((snapshot) => {
-      snapshot.forEach((doc) => {
-        burguers.push(doc.data());
-      });
-      this.setState({burguers: burguers});
     });
+    this.setState({sandwiches: sandwiches});
 
-    const accompaniments = [];
-    db.collection('productos').doc('almuerzos').collection('acompañamientos')
-    .onSnapshot((snapshot) => {      
-      snapshot.forEach((doc) => {
-        accompaniments.push(doc.data());
+    let burguers = [];
+    firebase.database().ref('products').orderByChild('type').equalTo('hamburguesas').once('value', (snapshot) =>{
+      snapshot.forEach(function(item) {
+        burguers.push(item.val());
       });
-      this.setState({accompaniments: accompaniments});
     });
+    this.setState({burguers: burguers});
 
-    const drinks = [];
-    db.collection('productos').doc('almuerzos').collection('bebidas')
-    .onSnapshot((snapshot) => {      
-      snapshot.forEach((doc) => {
-        drinks.push(doc.data());
+    let accompaniments = [];
+    firebase.database().ref('products').orderByChild('type').equalTo('acompañamientos').once('value', (snapshot) =>{
+      snapshot.forEach(function(item) {
+        accompaniments.push(item.val());
       });
-      this.setState({drinks: drinks});
     });
+    this.setState({accompaniments: accompaniments});
+
+    let drinks = [];
+    firebase.database().ref('products').orderByChild('type').equalTo('bebidas').once('value', (snapshot) =>{
+      snapshot.forEach(function(item) {
+        drinks.push(item.val());
+      });
+    });
+    this.setState({drinks: drinks});
   }
 
   render() {
