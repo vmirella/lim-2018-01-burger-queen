@@ -3,97 +3,97 @@
     "name": "Burger queen app",
     "icons": [
         {
-            "src": "./images/images/89ad2dbf-dd59-e9ff-5c11-129a290aec8c.webPlatform.png",
+            "src": "./Images/images/89ad2dbf-dd59-e9ff-5c11-129a290aec8c.webPlatform.png",
             "sizes": "44x44",
             "type": "image/png"
         },
         {
-            "src": "./images/images/4aa9aabb-77b8-cef7-7510-62a022277228.webPlatform.png",
+            "src": "./Images/images/4aa9aabb-77b8-cef7-7510-62a022277228.webPlatform.png",
             "sizes": "48x48",
             "type": "image/png"
         },
         {
-            "src": "./images/images/20668773-8653-64fb-5460-a647cfe57a8a.webPlatform.png",
+            "src": "./Images/images/20668773-8653-64fb-5460-a647cfe57a8a.webPlatform.png",
             "sizes": "1240x600",
             "type": "image/png"
         },
         {
-            "src": "./images/images/ba4122a7-f016-7308-fe7d-66ede67832a8.webPlatform.png",
+            "src": "./Images/images/ba4122a7-f016-7308-fe7d-66ede67832a8.webPlatform.png",
             "sizes": "300x300",
             "type": "image/png"
         },
         {
-            "src": "./images/images/2e579053-c76a-b3f7-4799-9f2d3c198792.webPlatform.png",
+            "src": "./Images/images/2e579053-c76a-b3f7-4799-9f2d3c198792.webPlatform.png",
             "sizes": "150x150",
             "type": "image/png"
         },
         {
-            "src": "./images/images/5f43773f-4a63-6ce7-da09-0e8c7c466b68.webPlatform.png",
+            "src": "./Images/images/5f43773f-4a63-6ce7-da09-0e8c7c466b68.webPlatform.png",
             "sizes": "88x88",
             "type": "image/png"
         },
         {
-            "src": "./images/images/96e87e22-ae88-5621-0049-919105321ae7.webPlatform.png",
+            "src": "./Images/images/96e87e22-ae88-5621-0049-919105321ae7.webPlatform.png",
             "sizes": "24x24",
             "type": "image/png"
         },
         {
-            "src": "./images/images/aa2267e1-23ae-0192-38e2-6050739ae462.webPlatform.png",
+            "src": "./Images/images/aa2267e1-23ae-0192-38e2-6050739ae462.webPlatform.png",
             "sizes": "50x50",
             "type": "image/png"
         },
         {
-            "src": "./images/images/a98b31ed-5d39-902b-3b93-1daa7f1ca4b0.webPlatform.png",
+            "src": "./Images/images/a98b31ed-5d39-902b-3b93-1daa7f1ca4b0.webPlatform.png",
             "sizes": "620x300",
             "type": "image/png"
         },
         {
-            "src": "./images/images/c4318319-f643-4a85-ae7d-e67790a15ec9.webPlatform.png",
+            "src": "./Images/images/c4318319-f643-4a85-ae7d-e67790a15ec9.webPlatform.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "./images/images/bd612c39-c78c-b975-9575-da326b9b7aa0.webPlatform.png",
+            "src": "./Images/images/bd612c39-c78c-b975-9575-da326b9b7aa0.webPlatform.png",
             "sizes": "144x144",
             "type": "image/png"
         },
         {
-            "src": "./images/images/927d3764-7bd7-add3-7697-aefdeb3d71c3.webPlatform.png",
+            "src": "./Images/images/927d3764-7bd7-add3-7697-aefdeb3d71c3.webPlatform.png",
             "sizes": "96x96",
             "type": "image/png"
         },
         {
-            "src": "./images/images/e16a7840-e5dc-a827-a5e2-1c3c1581712a.webPlatform.png",
+            "src": "./Images/images/e16a7840-e5dc-a827-a5e2-1c3c1581712a.webPlatform.png",
             "sizes": "72x72",
             "type": "image/png"
         },
         {
-            "src": "./images/images/b25f4090-93ac-31fd-f1e2-48fba14e5f27.webPlatform.png",
+            "src": "./Images/images/b25f4090-93ac-31fd-f1e2-48fba14e5f27.webPlatform.png",
             "sizes": "36x36",
             "type": "image/png"
         },
         {
-            "src": "./images/images/ios/ios-appicon-1024-1024.png",
+            "src": "./Images/images/ios/ios-appicon-1024-1024.png",
             "sizes": "1024x1024",
             "type": "image/png"
         },
         {
-            "src": "./images/images/ef29f5e3-310a-7355-5095-c3c9835eab12.webPlatform.png",
+            "src": "./Images/images/ef29f5e3-310a-7355-5095-c3c9835eab12.webPlatform.png",
             "sizes": "180x180",
             "type": "image/png"
         },
         {
-            "src": "./images/images/df70f372-b65e-4426-baae-6adddbdc42c7.webPlatform.png",
+            "src": "./Images/images/df70f372-b65e-4426-baae-6adddbdc42c7.webPlatform.png",
             "sizes": "152x152",
             "type": "image/png"
         },
         {
-            "src": "./images/images/29438002-dcf5-3ba0-aaf3-b98c089b9ee0.webPlatform.png",
+            "src": "./Images/images/29438002-dcf5-3ba0-aaf3-b98c089b9ee0.webPlatform.png",
             "sizes": "120x120",
             "type": "image/png"
         },
         {
-            "src": "./images/images/3dcdb16c-c78b-29c3-2fcf-d6fd36de6354.webPlatform.png",
+            "src": "./Images/images/3dcdb16c-c78b-29c3-2fcf-d6fd36de6354.webPlatform.png",
             "sizes": "76x76",
             "type": "image/png"
         }
