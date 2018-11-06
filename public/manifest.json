@@ -1,1 +1,16 @@
-it
+{
+    "short_name": "burgerqueen",
+    "name": "Burger queen app",
+    "icons": [
+
+   
+    ],
+    "start_url": "https://vmirella.github.io/lim-2018-01-burger-queen/?launcher=true",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#ffffff",
+    "lang": "Spanish",
+    "orientation": "portrait",
+    "description": "App para administración de restaurantes",
+    "scope": "./"
+}
