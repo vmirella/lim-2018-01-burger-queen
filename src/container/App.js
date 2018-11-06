@@ -135,6 +135,8 @@ class App extends Component {
       case 'collapseDrinks': 
         this.setState({ collapseDrinks: 'active' });
         break;
+        default:
+        this.setState({ collapseCoffes: 'active' });
     }
     
   }
