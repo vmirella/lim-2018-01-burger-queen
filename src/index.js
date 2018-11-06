@@ -11,10 +11,13 @@ const config = {
   databaseURL: "https://burguer-queen-9c312.firebaseio.com",
   projectId: "burguer-queen-9c312",
   storageBucket: "",
-  messagingSenderId: "1065454584888"
+  messagingSenderId: "1065454584888"  
 };
+const settings = {
+  timestampsInSnapshots: true
+}
 firebase.initializeApp(config);
-firebase.firestore().enablePersistence();
+firebase.firestore().settings(settings);
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
